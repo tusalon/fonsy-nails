@@ -1,22 +1,22 @@
-// sw.js - Service Worker para Milian's Lash Studio
+// sw.js - Service Worker para FONSY Nails Studio Habana
 
-const CACHE_NAME = 'milianlash-studio-v1';
+const CACHE_NAME = 'fonsy-nails-v1';
 const urlsToCache = [
-  '/milianlash-studio/',
-  '/milianlash-studio/index.html',
-  '/milianlash-studio/admin.html',
-  '/milianlash-studio/admin-login.html',
-  '/milianlash-studio/setup-wizard.html',
-  '/milianlash-studio/editar-negocio.html',
-  '/milianlash-studio/manifest.json',
-  '/milianlash-studio/icons/icon-72x72.png',
-  '/milianlash-studio/icons/icon-96x96.png',
-  '/milianlash-studio/icons/icon-128x128.png',
-  '/milianlash-studio/icons/icon-144x144.png',
-  '/milianlash-studio/icons/icon-152x152.png',
-  '/milianlash-studio/icons/icon-192x192.png',
-  '/milianlash-studio/icons/icon-384x384.png',
-  '/milianlash-studio/icons/icon-512x512.png'
+  '/fonsy-nails/',
+  '/fonsy-nails/index.html',
+  '/fonsy-nails/admin.html',
+  '/fonsy-nails/admin-login.html',
+  '/fonsy-nails/setup-wizard.html',
+  '/fonsy-nails/editar-negocio.html',
+  '/fonsy-nails/manifest.json',
+  '/fonsy-nails/icons/icon-72x72.png',
+  '/fonsy-nails/icons/icon-96x96.png',
+  '/fonsy-nails/icons/icon-128x128.png',
+  '/fonsy-nails/icons/icon-144x144.png',
+  '/fonsy-nails/icons/icon-152x152.png',
+  '/fonsy-nails/icons/icon-192x192.png',
+  '/fonsy-nails/icons/icon-384x384.png',
+  '/fonsy-nails/icons/icon-512x512.png'
 ];
 
 // ============================================
@@ -108,7 +108,7 @@ self.addEventListener('fetch', event => {
           }
           // Si no hay cache y es imagen, devolver icon por defecto
           if (event.request.url.match(/\.(jpg|jpeg|png|gif|svg|webp)$/)) {
-            return caches.match('/milianlash-studio/icons/icon-192x192.png');
+            return caches.match('/fonsy-nails/icons/icon-192x192.png');
           }
           return new Response('Error de red', { status: 408 });
         });
@@ -138,6 +138,6 @@ self.addEventListener('message', event => {
   }
 });
 
-console.log('✅ Service Worker configurado para Milian\'s Lash Studio');
+console.log('✅ Service Worker configurado para FONSY Nails Studio Habana');
 console.log('📦 Cache:', CACHE_NAME);
 console.log('📄 Archivos a cachear:', urlsToCache.length);
